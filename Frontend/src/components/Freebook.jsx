@@ -1,13 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import axios from 'axios'
 import Cards from './Cards';
 import Slider from "react-slick";
-import list from '../../public/list.json'
 
 function Freebook() {
-    const filterData = list.filter((data) => data.category === "Free")
-    var settings = {
+  const [book,setBook] = useState([])
+  useEffect(() =>{
+    const getBook = async ()=>{
+      try {
+        const res = await axios.get('http://localhost:3000/book')
+        console.log(res.data)
+        setBook(res.data.filter((data) => data.category === "Free"))
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getBook()
+  }, [])
+
+  var settings = {
       dots: true,
       infinite: false,
       speed: 500,
@@ -43,16 +56,16 @@ function Freebook() {
     };
   return (
     <>
-     <div className='px-20'>
-        <div className='my-5'>
-        <h1 className='text-2xl font-semibold mb-3'>Free Offered Courses</h1>
-        <p className=''>Books are our true best friends. They are full of information we need for our education and daily life. There are different types of books for a variety of knowledge that we seek, including science, history, mathematics, biology, fantasy, and anything else we need.</p>
+     <div className='md:px-20 px-10'>
+        <div className='space-y-3'>
+        <h1 className='md:text-2xl text-xl font-semibold'>Free Offered Courses</h1>
+        <p className=' '>Books are our true best friends. They are full of information we need for our education and daily life. There are different types of books for a variety of knowledge that we seek, including science, history, mathematics, biology, fantasy, and anything else we need.</p>
         </div>
 
-     <div className='flex flex-col justify-between'>
+     <div className='flex flex-col justify-between mt-5'>
      <Slider {...settings}>
         {
-          filterData.map((item) => (
+          book.map((item) => (
             <Cards item={item} key={item.id}/>
           ))
         }

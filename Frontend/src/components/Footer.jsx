@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
   return (
     <>
-     <div className=''>
+     <div className='mb-0'>
      <footer className="footer footer-center bg-gray-100 shadow-inner font-center flex flex-col rounded p-8 ">
   <nav className="flex m-auto gap-3 mb-5">
     <a href='/about' className="link link-hover text-sm cursor-pointer hover:underline hover:text-gray-800 duration-200">About us</a>

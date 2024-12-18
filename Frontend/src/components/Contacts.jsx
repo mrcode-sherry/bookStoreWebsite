@@ -3,8 +3,8 @@ import React from 'react'
 function Contacts() {
   return (
     <>
-     <div className=" flex items-center justify-center pb-20 px-6">
-            <div className="max-w-lg border w-full bg-white p-8 rounded-lg shadow-lg">
+     <div className=" flex items-center w-full justify-center md:pb-20 pb-16 md:px-6 pt-12 md:pt-0">
+            <div className="max-w-lg border w-full bg-white md:p-8 p-5 rounded-lg shadow-lg">
                 <h2 className="text-2xl font-bold text-center text-gray-800 mb-7">Contact Us</h2>
                 <form className="space-y-4">
                     {/* Name Field */}

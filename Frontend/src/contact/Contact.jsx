@@ -7,7 +7,7 @@ function Contact() {
   return (
     <>
      <Navbar/>
-     <div className='max-w-screen-2xl container mx-auto px-20'>
+     <div className='max-w-screen-2xl container mx-auto md:px-20 px-10'>
      <Contacts/>
      </div>
      <Footer/>
